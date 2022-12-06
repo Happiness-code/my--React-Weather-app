@@ -13,7 +13,7 @@ function App() {
         <span class="info">
           <small>
             <a
-              href="https://github.com/Happiness-code/weather-app"
+              href="https://github.com/Happiness-code/my--React-Weather-app"
               target="_blank"
               rel="noreferre"
             >
