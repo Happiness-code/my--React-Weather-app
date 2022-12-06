@@ -1,55 +1,65 @@
-import React, { useState } from "react";
-import axios from "axios";
-
-export default function Search() {
-  const [city, setCity] = useState("");
-  const [result, setResult] = useState(false);
-  const [temperature, setTemperature] = useState({});
-
-  function showWeather(response) {
-    setResult(true);
-    setTemperature({
-      temperature: response.data.main.temp,
-      wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description,
-    });
-  }
-  function handleSearch(event) {
-    event.preventDefault();
-    let apiKey = "7e43d835d74dd3d61976169a1cb6ff94";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showWeather);
-  }
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  let form = (
-    <form onSubmit={handleSearch}>
-      <input type="search" placeholder="Enter city" onChange={updateCity} />
-      <input type="submit" value="Search" />
-    </form>
-  );
-
-  if (result) {
-    return (
-      <div>
-        {form}
-        <ul>
-          <li>Temperature: {Math.round(temperature.temperature)}°C</li>
-          <li>Description: {temperature.description}</li>
-          <li>Humidity: {temperature.humidity}%</li>
-          <li>Wind: {temperature.wind}km/h</li>
-          <li>
-            <img src={temperature.icon} alt={temperature.description} />
-          </li>
-        </ul>
+import React from "react";
+import "./App.css";
+export default function Weather() {
+  let weatherData = {
+    city: "Pamplona",
+    date: "Thu,Aug 18,2022 01:51 pm",
+    description: "Sunny",
+    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png", 
+    humidity: 80,
+    wind: 0,
+    temperature: 30,
+  };
+  return (
+    <div className="Weather">
+      <form className="search-form">
+        <div className="row">
+          <div className="col-6">
+            <input
+              type="search"
+              placeholder="Enter city.."
+              class="form-control shadow-sm"
+            />
+          </div>
+          <div class="col-3">
+            <input
+              type="submit"
+              value="Search"
+              class="form-control btn btn-primary shadow-sm"
+            />
+          </div>
+          <div className="col-3">
+            <button type="button" className="btn btn-success">
+              Current
+            </button>
+          </div>
+        </div>
+      </form>
+      <h2>{weatherData.city}</h2>
+      <h3>{weatherData.date}</h3>
+      <h4>{weatherData.description}</h4>
+      <div className="row">
+        <div className="col-6">
+          <div className="weather-temperature"></div>
+          <img
+            src={weatherData.imgUrl}
+            alt={weatherData.description}
+            className="flex"
+          />
+          <span className="temperature">{weatherData.temperature}</span>
+          <span className="unit">
+            <a href="/">°C</a> |<a href="/">°F</a>
+          </span>
+        </div>
+        <div class="col-6">
+          <p>
+            <em>Humidity:{weatherData.humidity}%</em>
+          </p>
+          <p>
+            <em>Wind: {weatherData.wind}km/h </em>
+          </p>
+        </div>
       </div>
-    );
-  } else {
-    return form;
-  }
+    </div>
+  );
 }
