@@ -4,36 +4,32 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      
-        <div className=""="contianer">
-          <div className=""="wrapper">
-            <h1>WEATHER FORECAST</h1>
-            <header/>
-            <Weather />
-            
-          
-              <small>
-                <a
-                  href="https://github.com/Happiness-code/weather-app"
-                  target="_blank"
-                  rel="noreferre">
-                
-                open soucre 
-                </a>
-                coded by Happy JE
-                <a
-                  href="https://majestic-sprite-aac581.netlify.app/"
-                  target="-blank"
-                  rel="noreferrer"
-                >
-                  hosted on netlify
-                </a>
-              </small>
-            
-          
-        
-        <script src="src/index.js"></script>
-      
+      <div className="wrapper">
+        <h1>WEATHER FORECAST</h1>
+        <header />
+        <Weather />
+      </div>
+      <div class="contianer text-center">
+        <span class="info">
+          <small>
+            <a
+              href="https://github.com/Happiness-code/weather-app"
+              target="_blank"
+              rel="noreferre"
+            >
+              open-source link
+            </a>
+            coded by Happy JE
+            <a
+              href="https://majestic-sprite-aac581.netlify.app/"
+              target="-blank"
+              rel="noreferrer"
+            >
+              hosted on netlify
+            </a>
+          </small>
+        </span>
+      </div>
     </div>
   );
 }
