@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Weather from "./Weather";
 function App() {
@@ -15,7 +14,7 @@ function App() {
             <a
               href="https://github.com/Happiness-code/my--React-Weather-app"
               target="_blank"
-              rel="noreferre"
+              rel="noreferrer"
             >
               open-source link
             </a>
