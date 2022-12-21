@@ -1,8 +1,10 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
+      <div claasName="contianer">
       <div className="wrapper">
         <h1>WEATHER FORECAST</h1>
         <header />
@@ -28,6 +30,7 @@ function App() {
           </small>
         </span>
       </div>
+    </div>
     </div>
   );
 }
