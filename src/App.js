@@ -18,13 +18,12 @@ function App() {
             >
               open-source link
             </a>
-            coded by Happy JE
-            <a
+            coded by Happy JE     
+             <a
               href="https://majestic-sprite-aac581.netlify.app/"
               target="-blank"
               rel="noreferrer"
-            >
-              hosted on netlify
+            >hosted on netlify
             </a>
           </small>
         </span>
