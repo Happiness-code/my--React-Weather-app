@@ -61,36 +61,11 @@ function handleCityChange(event) {
       </form>
       <WeatherInfo data={weatherData} />
       <WeatherForecast coordinates={weatherData.coordinates} />
-      <h2>{weatherData.city}</h2>
-      <h3>{weatherData.date}</h3>
-      <h4>{weatherData.description}</h4>
-      <div className="row">
-        <div className="col-6">
-          <div className="weather-temperature"></div>
-          <img
-            src={weatherData.imgUrl}
-            alt={weatherData.description}
-            className="flex"
-          />
-          <span className="temperature">{weatherData.temperature}</span>
-          <span className="unit">
-            <a href="/">°C</a>
-          </span>
-        </div>
-        <div class="col-6">
-          <p>
-            <em>Humidity:{weatherData.humidity}%</em>
-          </p>
-          <p>
-            <em>Wind: {weatherData.wind}km/h </em>
-          </p>
-        </div>
       </div>
-    </div>
   );
 }
 else{
   search();
   return "loading....."
 }
-}
+   }
