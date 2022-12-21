@@ -3,13 +3,13 @@ body {
   
   background: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 }
-h1 {
+.Weather h1 {
   color:#dbdcd7;
   font-size: 28px;
   font-weight: 500;
   line-height: 28px;
 }
-h2 {
+.Weather h2 {
   margin: 0 auto;
   padding-top: 20px;
   font-weight: 700;
@@ -18,12 +18,12 @@ h2 {
   color: #dbdcd7;
 }
 
-h3 {
+.Weather h3 {
   line-height: 1px;
   font-size: 18px;
   line-height: 1;
 }
-h4 {
+.Weather h4 {
   line-height: 1px;
   font-size: 18px;
   margin-top: 2px;
