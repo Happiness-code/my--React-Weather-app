@@ -23,7 +23,7 @@ function App() {
               </a>
               coded by Happy JE
               <a
-                href="https://majestic-sprite-aac581.netlify.app/"
+                href="https://curious-fudge-a20a59.netlify.app/"
                 target="-blank"
                 rel="noreferrer"
               >
