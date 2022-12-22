@@ -1,11 +1,11 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 export default function Weather(props) {
-  const [weatherData, setWeatherData]= useState({ready:false});
-const [city, setCity] = useState(props.defaultCity);
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -23,51 +23,49 @@ const [city, setCity] = useState(props.defaultCity);
     event.preventDefault();
     search();
   }
-function handleCityChange(event) {
+  function handleCityChange(event) {
     setCity(event.target.value);
   }
 
   function search() {
-  const apiKey ="7e43d835d74dd3d61976169a1cb6ff94";
-  let apiUrl =
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&untis=metric`;
-  axios.get(apiUrl).then(handleResponse)
-  };
-  if(weatherData.ready){
-  return (
-    <div className="Weather">
-      <form className="search-form">
-        <div className="row">
-          <div className="col-6">
-            <input
-              type="search"
-              placeholder="Enter city.."
-              className="form-control shadow-sm"
-              autoFocus="on"
-              onChange={handleCityChange}
-            />
+    const apiKey = "7e43d835d74dd3d61976169a1cb6ff94";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form className="search-form">
+          <div className="row">
+            <div className="col-6">
+              <input
+                type="search"
+                placeholder="Enter city.."
+                className="form-control shadow-sm"
+                autoFocus="on"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div className="col-3">
+              <button type="button" className="btn btn-success">
+                Current
+              </button>
+            </div>
           </div>
-          <div class="col-3">
-            <input
-              type="submit"
-              value="Search"
-              class="form-control btn btn-primary shadow-sm"
-            />
-          </div>
-          <div className="col-3">
-            <button type="button" className="btn btn-success">
-              Current
-            </button>
-          </div>
-        </div>
-      </form>
-      <WeatherInfo data={weatherData} />
-      <WeatherForecast coordinates={weatherData.coordinates} />
+        </form>
+        <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
-  );
+    );
+  } else {
+    search();
+    return "loading.....";
+  }
 }
-else{
-  search();
-  return "loading....."
-}
-   }
